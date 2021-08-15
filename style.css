@@ -2,9 +2,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  /* display: flexbox;
-  justify-content: right;
-  align-items: center; */
 }
 
 canvas {
