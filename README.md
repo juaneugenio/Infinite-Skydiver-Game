@@ -1,1 +1,1 @@
-# Infinit-Skydiver-Game
+# Infinit-SkyDiver

@@ -1,0 +1,14 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* display: flexbox;
+  justify-content: right;
+  align-items: center; */
+}
+
+canvas {
+  display: box;
+  justify-content: center;
+  border: 10px solid rgba(243, 113, 195, 0.824);
+}
