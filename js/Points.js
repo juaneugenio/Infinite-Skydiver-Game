@@ -4,11 +4,16 @@ class Point {
     this.y = random(920, CANVAS_HEIGHT);
     this.width = 50;
     this.height = 40;
+    this.erasePoint = false;
   }
   draw() {
-    this.y -= 6;
+    this.y -= 1;
     image(coinPoint, this.x, this.y, this.width, this.height);
   }
+  remove() {
+    this.erasePoint = true;
+  }
+
   // for the collision
   get bottomSide() {
     return this.y + this.height;

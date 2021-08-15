@@ -4,14 +4,18 @@ class Game {
     this.obstacles = [];
     this.player = new Player();
     this.points = [];
+    this.score = 0;
   }
   setup() {
     createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   }
   draw() {
-    clear();
+    //console.log("boom", this.obstacles.length);
     this.background.draw();
     this.player.draw();
+    if (this.collisionCheck(this.player, this.points)) {
+      this.score++;
+    }
 
     //Obstacle random and swap.
 
@@ -28,7 +32,7 @@ class Game {
 
     this.obstacles.forEach((obstacle, index) => {
       obstacle.draw();
-      if (obstacle.y - obstacle.height < 0) {
+      if (obstacle.y + obstacle.height <= 0) {
         this.obstacles.splice(index, 0);
       }
     });
@@ -43,27 +47,31 @@ class Game {
       if (point.y + point.height < 0) {
         this.points.splice(index, 0);
       }
+      this.points.forEach((point) => {
+        if (this.collisionCheck(this.player, point)) {
+          point.remove();
+        }
+      });
     });
+    if (point.erasePoint) {
+      this.point.splice(index, 1);
+    }
   }
 
   //Collision Check
-  collisionCheck(player, points) {
-    if (player.bottomSide < points.topSide) {
+  collisionCheck(player, point) {
+    if (player.bottomSide < point.topSide) {
       return false;
     }
-
-    if (player.rightSide < points.leftSide) {
+    if (player.rightSide < point.leftSide) {
       return false;
     }
-
-    if (player.leftSide > points.rightSide) {
+    if (player.leftSide > point.rightSide) {
       return false;
     }
-
-    if (player.topSide > points.bottomSide) {
+    if (player.topSide > point.bottomSide) {
       return false;
     }
-
     return true;
   }
 }

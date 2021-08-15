@@ -6,7 +6,9 @@ function setup() {
 }
 
 function draw() {
+  clear();
   game.draw();
+
   //////Stages
   // if (stage == 0) {
   //   //////Check this later
@@ -16,8 +18,8 @@ function draw() {
 
 function preload() {
   bgClouds = loadImage("./Assets/bgClouds.jpg");
+  skyDiver = loadImage("/Assets/skyDiver.png");
   obstacle1 = loadImage("./Assets/ufoShip.png");
   obstacle2 = loadImage("./Assets/fatBird.png");
-  skyDiver = loadImage("/Assets/skyDiver.png");
   coinPoint = loadImage("/Assets/coinPoint.png");
 }
