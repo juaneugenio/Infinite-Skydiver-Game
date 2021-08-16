@@ -17,9 +17,10 @@ function draw() {
 }
 
 function preload() {
-  bgClouds = loadImage("./Assets/bgClouds.jpg");
+  bgClouds = loadImage("/Assets/bgClouds.jpg");
   skyDiver = loadImage("/Assets/skyDiver.png");
-  obstacle1 = loadImage("./Assets/ufoShip.png");
-  obstacle2 = loadImage("./Assets/fatBird.png");
+  obstacle1 = loadImage("/Assets/ufoShip.png");
+  obstacle2 = loadImage("/Assets/fatBird.png");
   coinPoint = loadImage("/Assets/coinPoint.png");
+  //coinTouch = loadImage("/Assets/coinTouch.m4a");
 }

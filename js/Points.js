@@ -7,7 +7,7 @@ class Point {
     this.erasePoint = false;
   }
   draw() {
-    this.y -= 1;
+    this.y -= 3;
     image(coinPoint, this.x, this.y, this.width, this.height);
   }
   remove() {

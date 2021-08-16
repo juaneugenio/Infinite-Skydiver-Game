@@ -39,23 +39,24 @@ class Game {
 
     // PointCoins random display
 
-    if (frameCount % 60 === 0) {
+    if (frameCount % 50 === 0) {
       this.points.push(new Point());
     }
     this.points.forEach((point, index) => {
       point.draw();
-      if (point.y + point.height < 0) {
-        this.points.splice(index, 0);
+      if (point.y + point.height <= 0) {
+        this.points.splice(index, 1);
       }
       this.points.forEach((point) => {
         if (this.collisionCheck(this.player, point)) {
           point.remove();
+
+          if (point.erasePoint) {
+            this.points.splice(index, 1);
+          }
         }
       });
     });
-    if (point.erasePoint) {
-      this.point.splice(index, 1);
-    }
   }
 
   //Collision Check
