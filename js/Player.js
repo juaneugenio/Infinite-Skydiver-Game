@@ -19,35 +19,35 @@ class Player {
   }
   move() {
     if (keyIsDown(LEFT_ARROW)) {
-      this.x -= 7;
+        this.x -= 7;
     }
     if (keyIsDown(RIGHT_ARROW)) {
-      this.x += 7;
+        this.x += 7;
     }
     if (keyIsDown(UP_ARROW)) {
-      this.y -= 6;
+        this.y -= 6;
     }
     if (keyIsDown(DOWN_ARROW)) {
-      this.y += 8;
+        this.y += 8;
     }
   }
   maintainBoundaries() {
     // CAN't GO OVER THE LEFT SIDE
     if (this.x <= 0) {
-      this.x = 0;
+        this.x = 0;
     }
     // CAN'T GO OVER ON THE RIGHT SIDE
     if (this.x >= this.rightBoundary) {
-      this.x = this.rightBoundary;
+        this.x = this.rightBoundary;
     }
 
     // CAN'T GO OVER THE TOP SIDE
     if (this.y <= 0) {
-      this.y = 0;
+        this.y = 0;
     }
     // CAN'T GO OVER ON THE BOTTOM SIDE
     if (this.y >= this.bottomBoundary) {
-      this.y = this.bottomBoundary;
+        this.y = this.bottomBoundary;
     }
   }
   //for the collision

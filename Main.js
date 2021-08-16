@@ -22,5 +22,6 @@ function preload() {
   obstacle1 = loadImage("/Assets/ufoShip.png");
   obstacle2 = loadImage("/Assets/fatBird.png");
   coinPoint = loadImage("/Assets/coinPoint.png");
-  //coinTouch = loadImage("/Assets/coinTouch.m4a");
+  coinTouch = loadSound("/Assets/coinTouch.m4a"); 
+  soundtrack = loadSound("/Assets/soundtrack.m4a")
 }

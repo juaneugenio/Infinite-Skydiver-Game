@@ -4,29 +4,31 @@ class Point {
     this.y = random(920, CANVAS_HEIGHT);
     this.width = 50;
     this.height = 40;
-    this.erasePoint = false;
+    this.eraseCoin = false;
+    //this.sound = coinTouch;
   }
   draw() {
     this.y -= 3;
     image(coinPoint, this.x, this.y, this.width, this.height);
   }
   remove() {
-    this.erasePoint = true;
+    this.eraseCoin = true;
+    ///this.sound= asociate the sound here?
   }
 
-  // for the collision
+  
   get bottomSide() {
-    return this.y + this.height;
+      return this.y + this.height;
   }
 
   get topSide() {
-    return this.y;
+      return this.y;
   }
 
   get leftSide() {
-    return this.x;
+      return this.x;
   }
   get rightSide() {
-    return this.x + this.width;
+      return this.x + this.width;
   }
 }
