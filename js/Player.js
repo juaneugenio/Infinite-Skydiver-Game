@@ -18,8 +18,8 @@ class Player {
     this.y -= 5.5;
   }
   sizeIncrement(){
-    this.width*1.2;
-    this.height*1.2;
+    this.width*=1.2;
+    this.height*=1.2;
   }
   move() {
     if (keyIsDown(LEFT_ARROW)) {

@@ -51,7 +51,7 @@ class Game {
       if (point.y + point.height <= 0) {
         this.points.splice(index, 1);
       }
-      this.points.forEach((point) => {
+      //this.points.forEach((point) => {
         if (this.collisionCollect(this.player, point)) {
           point.remove();
           this.score++;
@@ -59,7 +59,7 @@ class Game {
           scoreHolder.innerText = this.score;
           this.points.splice(index, 1);
         }
-      });
+      //});
     });
   }
 
