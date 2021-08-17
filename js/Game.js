@@ -5,12 +5,10 @@ class Game {
     this.player = new Player();
     this.points = [];
     this.score = 0;
+    
   }
   setup() {
     createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-    soundtrack.play();
-    soundtrack.setVolume(0.3);
-    //soundtrack.loop();
   }
   draw() {
     //console.log("boom", this.obstacles.length);
@@ -33,12 +31,18 @@ class Game {
     this.obstacles.forEach((obstacle, index) => {
       obstacle.draw();
       if (obstacle.y + obstacle.height <= 0) {
-          this.obstacles.splice(index, 0);
+        this.obstacles.splice(index, 0);
       }
-      if(this.collisionObstacle(this.player, obstacle)) { ////<------ Collision obstacle to implement
-        this.player.sizeIncrement();
-        soundtrack.stop();
+      if (this.collisionObstacle(this.player, obstacle)) {
+        ////<------ Collision obstacle to implement
+        
+        this.player.sizeIncrement()
+        
       }
+      // if(this.player.sizeIncrement = CANVAS_WIDTH){
+      //   this.player.remove();
+        
+      // }
     });
 
     // PointCoins random display
@@ -51,15 +55,15 @@ class Game {
       if (point.y + point.height <= 0) {
         this.points.splice(index, 1);
       }
-      //this.points.forEach((point) => {
-        if (this.collisionCollect(this.player, point)) {
-          point.remove();
-          this.score++;
-          coinTouch.play();
-          scoreHolder.innerText = this.score;
-          this.points.splice(index, 1);
-        }
-      //});
+      
+      if (this.collisionCollect(this.player, point)) {
+        //point.remove();
+        this.score++;
+        coinTouch.play();
+        scoreHolder.innerText = this.score;
+        this.points.splice(index, 1);
+      }
+     
     });
   }
 
@@ -94,5 +98,12 @@ class Game {
       return false;
     }
     return true;
+  }
+  keyPressed() {
+    if (keyCode === SPACE_BAR) {
+      //soundtrack.play();
+      soundtrack.setVolume(0.3);
+      soundtrack.loop();
+    }
   }
 }

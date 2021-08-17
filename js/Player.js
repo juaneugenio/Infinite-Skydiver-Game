@@ -6,6 +6,7 @@ class Player {
     this.width = 65;
     this.rightBoundary = CANVAS_WIDTH - this.width;
     this.bottomBoundary = CANVAS_HEIGHT - this.height;
+    this.erasePlayer = false;
   }
 
   draw() {
@@ -13,45 +14,49 @@ class Player {
     this.move();
     this.maintainBoundaries();
     image(skyDiver, this.x, this.y, this.width, this.height);
+    this.remove();
   }
   deceleration() {
     this.y -= 5.5;
   }
-  sizeIncrement(){
-    this.width*=1.2;
-    this.height*=1.2;
+  remove() {
+    this.erasePlayer = true;
+  }
+  sizeIncrement() {
+    this.width += 0.7;
+    this.height += 0.7;
   }
   move() {
     if (keyIsDown(LEFT_ARROW)) {
-        this.x -= 7;
+      this.x -= 7;
     }
     if (keyIsDown(RIGHT_ARROW)) {
-        this.x += 7;
+      this.x += 7;
     }
     if (keyIsDown(UP_ARROW)) {
-        this.y -= 6;
+      this.y -= 6;
     }
     if (keyIsDown(DOWN_ARROW)) {
-        this.y += 8;
+      this.y += 8;
     }
   }
   maintainBoundaries() {
     // CAN't GO OVER THE LEFT SIDE
     if (this.x <= 0) {
-        this.x = 0;
+      this.x = 0;
     }
     // CAN'T GO OVER ON THE RIGHT SIDE
     if (this.x >= this.rightBoundary) {
-        this.x = this.rightBoundary;
+      this.x = this.rightBoundary;
     }
 
     // CAN'T GO OVER THE TOP SIDE
     if (this.y <= 0) {
-        this.y = 0;
+      this.y = 0;
     }
     // CAN'T GO OVER ON THE BOTTOM SIDE
     if (this.y >= this.bottomBoundary) {
-        this.y = this.bottomBoundary;
+      this.y = this.bottomBoundary;
     }
   }
   //for the collision

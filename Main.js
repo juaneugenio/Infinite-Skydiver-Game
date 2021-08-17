@@ -25,3 +25,8 @@ function preload() {
   coinTouch = loadSound("./Assets/coinTouch.m4a"); 
   soundtrack = loadSound("./Assets/soundtrack.m4a")
 }
+
+function keyPressed() {
+  game.keyPressed();
+  
+}
