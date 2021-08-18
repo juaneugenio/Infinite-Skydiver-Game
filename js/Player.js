@@ -1,10 +1,10 @@
 class Player {
   constructor() {
     this.x = CANVAS_WIDTH / 2.3;
-    this.y = 0;
+    this.y = CANVAS_HEIGHT/2;
     this.height = 60;
     this.width = 65;
-    this.rightBoundary = CANVAS_WIDTH - this.width;
+    this.rightBoundary = CANVAS_WIDTH;
     this.bottomBoundary = CANVAS_HEIGHT - this.height;
     this.erasePlayer = false;
   }
@@ -23,8 +23,8 @@ class Player {
     this.erasePlayer = true;
   }
   sizeIncrement() {
-    this.width += 0.7;
-    this.height += 0.7;
+    this.width += 0.6;
+    this.height += 0.6;
   }
   move() {
     if (keyIsDown(LEFT_ARROW)) {
@@ -51,8 +51,8 @@ class Player {
     }
 
     // CAN'T GO OVER THE TOP SIDE
-    if (this.y <= 0) {
-      this.y = 0;
+    if (this.y <= 30) {
+      this.y = 30;
     }
     // CAN'T GO OVER ON THE BOTTOM SIDE
     if (this.y >= this.bottomBoundary) {

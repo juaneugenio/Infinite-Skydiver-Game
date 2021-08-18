@@ -5,7 +5,7 @@ class Point {
     this.width = 50;
     this.height = 40;
     this.eraseCoin = false;
-    //this.sound = coinTouch;
+   
   }
   draw() {
     this.y -= 3;

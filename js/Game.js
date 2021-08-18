@@ -9,11 +9,15 @@ class Game {
   }
   setup() {
     createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+    
   }
   draw() {
-    //console.log("boom", this.obstacles.length);
+    clear();
     this.background.draw();
     this.player.draw();
+    // soundtrack.play();
+    // soundtrack.setVolume(0.3);
+    
 
     //Obstacle random and swap.
 
@@ -36,13 +40,11 @@ class Game {
       if (this.collisionObstacle(this.player, obstacle)) {
         ////<------ Collision obstacle to implement
         
-        this.player.sizeIncrement()
+        this.player.sizeIncrement();
+       
+        //this.obstacles.splice(index, 1);
         
       }
-      // if(this.player.sizeIncrement = CANVAS_WIDTH){
-      //   this.player.remove();
-        
-      // }
     });
 
     // PointCoins random display
@@ -60,11 +62,17 @@ class Game {
         //point.remove();
         this.score++;
         coinTouch.play();
-        scoreHolder.innerText = this.score;
         this.points.splice(index, 1);
       }
      
     });
+    //Text Scoreboard
+    fill(255, 153, 51)
+    stroke(0);
+    strokeWeight(3);
+    textSize(30);
+    text("Score: ", 20, 50);
+    text(this.score, 115, 50);
   }
 
   //Collision Check for collecting points
@@ -99,11 +107,5 @@ class Game {
     }
     return true;
   }
-  keyPressed() {
-    if (keyCode === SPACE_BAR) {
-      //soundtrack.play();
-      soundtrack.setVolume(0.3);
-      soundtrack.loop();
-    }
-  }
+  
 }
