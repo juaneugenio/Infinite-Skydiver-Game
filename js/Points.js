@@ -13,7 +13,6 @@ class Point {
   }
   remove() {
     this.eraseCoin = true;
-    ///this.sound= asociate the sound here?
   }
 
   

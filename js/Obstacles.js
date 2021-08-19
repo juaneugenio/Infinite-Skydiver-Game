@@ -15,19 +15,19 @@ class Obstacle {
   //   this.erase = true;
   // }
 
-  //for the collision
+  //FOR THE COLLISION.
   get bottomSide() {
-    return this.y + this.height;
+      return this.y + this.height;
   }
 
   get topSide() {
-    return this.y;
+      return this.y;
   }
 
   get leftSide() {
-    return this.x;
+      return this.x;
   }
   get rightSide() {
-    return this.x + this.width;
+      return this.x + this.width;
   }
 }
