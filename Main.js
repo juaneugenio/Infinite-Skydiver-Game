@@ -17,10 +17,6 @@ function draw() {
   if (keyCode == 32) {
     stage = 1;
   }
-  //PLAY AGAIN
-  if (keyCode == 13) {
-    stage = 1;
-  }
 }
 
 function preload() {
@@ -34,4 +30,10 @@ function preload() {
   youLose = loadImage("./Assets/youLose.png");
   coinTouch = loadSound("./Assets/coinTouch.m4a"); 
   soundtrack = loadSound("./Assets/soundtrack.m4a");
+  myFont = loadFont("./Assets/Tabby - Display.ttf");
+  myFont2 = loadFont("./Assets/Cosmic Blaster.ttf");
+}
+
+function keyPressed(){
+  game.keyPressed();
 }

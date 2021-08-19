@@ -6,6 +6,18 @@ class Game {
     this.points = [];
     this.score = 0;
   }
+
+  restartGame() {
+    if (isLooping()) {
+      return;
+    }
+    this.background = new Background();
+    this.obstacles = [];
+    this.player = new Player();
+    this.points = [];
+    this.score = 0;
+    loop();
+  }
   setup() {
     createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     soundtrack.loop();
@@ -39,34 +51,39 @@ class Game {
       }
     });
 
-    //GAME WIN. ALL POINTS COLLECTED.
+    //GAME WIN. ALL POINTS COLLECTED. GAME WIN SCREEN.
     if (this.score >= 100) {
       soundtrack.stop();
-      fill(220, 20, 60);
+      fill(0,0,0);
       rect(0, 250, CANVAS_WIDTH, 350);
-      image(youWin, 120, 270, 430, 250);
       fill(255, 255, 255);
-      noStroke();
+      textFont(myFont2); //<------font check.
+      textSize(70);
+      text("<YOU WIN!>", 80, 360);
+      fill(173, 255, 47);
       textSize(25);
-      text("RELOAD page to restart.", 200, 550);
+      text("Well done!", 250, 440);
+      text("You are a professional Skydiver.", 110, 480);
+      fill(255, 255, 255);
+      text("Press ENTER to play again.", 170, 560);
       noLoop();
     }
 
-    //GAME OVER. PLAYER SIZE INCREMENT.
+    //GAME OVER STATEMENT. PLAYER SIZE INCREMENT. GAME OVER SCREEN.
     if (this.player.width >= 500) {
       soundtrack.stop();
-      fill(47, 79, 79);
+      fill(0, 0, 0);
       rect(0, 250, CANVAS_WIDTH, 350);
-      image(youLose, 200, 275, 210, 140);
-      fill(173, 255, 47);
-      noStroke();
-      textSize(30);
-      text("Admit it!", 260, 480);
-      text("You are too big to continue", 150, 515);
       fill(255, 255, 255);
-      noStroke();
+      textFont(myFont2); //<------font check.
+      textSize(65);
+      text("<GAME OVER!>", 50, 360);
+      fill(173, 255, 47);
       textSize(25);
-      text("RELOAD page to restart.", 200, 560);
+      text("Admit it!", 250, 440);
+      text("You are too big to continue.", 120, 480);
+      fill(255, 255, 255);
+      text("Press ENTER to play again.", 150, 560);
       noLoop();
     }
 
@@ -89,30 +106,36 @@ class Game {
     });
 
     //SCOREBOARD DISPLAY ON CANVAS.
-    fill(255, 153, 51);
-    stroke(0);
-    strokeWeight(3);
+    fill(100, 149, 237);
+    stroke(255, 255, 255);
+    strokeWeight(6);
+    textFont(myFont);
     textSize(30);
     text("Score: ", 20, 50);
+    textFont('Georgia');
+    textSize(30);
     text(this.score, 115, 50);
   }
 
   splashScreen() {
     image(bgClouds, 0, 0, 900, 1200);
-    image(skyDiver, 220, 220, 180, 150);
+    image(skyDiver, 220, 100, 180, 150);
     image(arrowKeys, 80, 500, 80, 80);
     image(coinPoint, 100, 595, 40, 35);
     image(obstacle1, 100, 680, 40, 35);
     image(obstacle2, 100, 720, 40, 35);
     fill(0, 191, 255);
     stroke(255, 255, 255);
-    strokeWeight(10);
+    strokeWeight(15);
+    textFont(myFont);//<------font check.
     textSize(70);
-    text("Infinite Skydiver", 70, 150);
+    text("Infinite Skydiver", 80, 360);
     fill(184, 134, 11);
     noStroke();
-    textSize(40);
+    textFont(myFont);
+    textSize(50);
     text("How to play", 200, 470);
+    textFont("Helvetica");
     textSize(25);
     fill(70, 130, 180);
     text("Press and hold the arrows to move.", 180, 560);
@@ -130,8 +153,9 @@ class Game {
     text("no longer avoid them.", 180, 755);
     fill(184, 134, 11);
     noStroke();
-    textSize(40);
-    text("Press SPACE to start!", 130, 830);
+    textFont(myFont);
+    textSize(50);
+    text("Press SPACE to start!", 100, 850);
   }
 
   //COLLISION CHECK FOR COLLECTIG POINTS.
@@ -165,5 +189,10 @@ class Game {
       return false;
     }
     return true;
+  }
+  keyPressed() {
+    if (keyCode == 13) {
+      this.restartGame();
+    }
   }
 }

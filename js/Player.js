@@ -6,7 +6,7 @@ class Player {
     this.width = 70;
     this.rightBoundary = CANVAS_WIDTH - this.width;
     this.bottomBoundary = CANVAS_HEIGHT - this.height;
-    this.erasePlayer = false; //check this
+
   }
 
   draw() {
@@ -14,15 +14,13 @@ class Player {
     this.move();
     this.maintainBoundaries();
     image(skyDiver, this.x, this.y, this.width, this.height);
-    this.remove(); //check this.
+
 
   }
   deceleration() {
     this.y -= 5.5;
   }
-  remove() {
-    this.erasePlayer = true; //check this.
-  }
+
   sizeIncrement() {
     this.width += 0.6;
     this.height += 0.6;
