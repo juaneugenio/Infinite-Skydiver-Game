@@ -9,14 +9,13 @@ class Game {
   }
   setup() {
     createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-    
+    soundtrack.loop();
+    soundtrack.setVolume(0.3);
   }
   draw() {
-    clear();
+    //clear();
     this.background.draw();
     this.player.draw();
-    // soundtrack.play();
-    // soundtrack.setVolume(0.3);
     
 
     //Obstacle random and swap.
@@ -45,7 +44,12 @@ class Game {
         //this.obstacles.splice(index, 1);
         
       }
+      
     });
+
+    if(this.player.width >= 500){
+      noLoop();
+    }
 
     // PointCoins random display
 

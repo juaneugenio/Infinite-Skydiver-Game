@@ -1,11 +1,12 @@
 class Player {
   constructor() {
     this.x = CANVAS_WIDTH / 2.3;
-    this.y = CANVAS_HEIGHT/2;
-    this.height = 60;
-    this.width = 65;
-    this.rightBoundary = CANVAS_WIDTH;
+    this.y = CANVAS_HEIGHT / 2;
+    this.height = 65;
+    this.width = 70;
+    this.rightBoundary = CANVAS_WIDTH - this.width;
     this.bottomBoundary = CANVAS_HEIGHT - this.height;
+    //Question the Increment
     this.erasePlayer = false;
   }
 
@@ -15,6 +16,7 @@ class Player {
     this.maintainBoundaries();
     image(skyDiver, this.x, this.y, this.width, this.height);
     this.remove();
+
   }
   deceleration() {
     this.y -= 5.5;
@@ -26,6 +28,7 @@ class Player {
     this.width += 0.6;
     this.height += 0.6;
   }
+ 
   move() {
     if (keyIsDown(LEFT_ARROW)) {
       this.x -= 7;
