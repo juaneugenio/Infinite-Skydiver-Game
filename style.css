@@ -8,7 +8,6 @@ body {
 
 canvas {
 	display: box;
-	border: 2px solid yellow;
 	justify-content: center;
 	border: 10px solid rgba(243, 113, 195, 0.824);
 	align-items: center;
