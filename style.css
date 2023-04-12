@@ -1,11 +1,15 @@
+/** @format */
+
 html,
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 canvas {
-  display: box;
-  justify-content: center;
-  border: 10px solid rgba(243, 113, 195, 0.824);
+	display: box;
+	border: 2px solid yellow;
+	justify-content: center;
+	border: 10px solid rgba(243, 113, 195, 0.824);
+	align-items: center;
 }
