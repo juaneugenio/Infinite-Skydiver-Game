@@ -4,7 +4,6 @@ class Player {
     this.y = CANVAS_HEIGHT / 2;
     this.height = 65;
     this.width = 70;
-    this.rightBoundary = CANVAS_WIDTH - this.width;
     this.bottomBoundary = CANVAS_HEIGHT - this.height;
 
   }
@@ -24,6 +23,7 @@ class Player {
   sizeIncrement() {
     this.width += 0.6;
     this.height += 0.6;
+    this.updateBoundaries();
   }
  
   move() {
@@ -40,6 +40,12 @@ class Player {
         this.y += 8;
     }
   }
+
+  updateBoundaries() {
+    this.bottomBoundary = CANVAS_HEIGHT - this.height;
+    this.rightBoundary = CANVAS_WIDTH - this.width;
+  }
+  
   maintainBoundaries() {
     
     if (this.x <= 0) {                    // CAN't GO OVER THE LEFT SIDE
